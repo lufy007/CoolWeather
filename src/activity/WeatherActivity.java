@@ -29,6 +29,8 @@ public class WeatherActivity extends Activity implements android.view.View.OnCli
 	private Button switchCity;
 	private Button refreshWeather;
 	
+	
+	
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -41,8 +43,11 @@ public class WeatherActivity extends Activity implements android.view.View.OnCli
 		temp1Text = (TextView)findViewById(R.id.temp1);
 		temp2Text = (TextView)findViewById(R.id.temp2);
 		currentDateText = (TextView)findViewById(R.id.current_date);
+		
 		switchCity = (Button)findViewById(R.id.switch_city);
 		refreshWeather = (Button)findViewById(R.id.refresh_weather);
+		
+		
 		String countyCode = getIntent().getStringExtra("county_code");
 		if(!TextUtils.isEmpty(countyCode)){
 			//有县级代号就去查询天气
@@ -54,6 +59,7 @@ public class WeatherActivity extends Activity implements android.view.View.OnCli
 			//没有县级代号直接显示本地天气
 			showWeather();
 		}
+		
 		switchCity.setOnClickListener(this);
 		refreshWeather.setOnClickListener(this);
 	}
