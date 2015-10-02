@@ -1,5 +1,6 @@
 package activity;
 
+import receiver.AutoUpdateReceiver;
 import util.HttpCallbackListener;
 import util.HttpUtil;
 import util.Utility;
@@ -158,6 +159,10 @@ public class WeatherActivity extends Activity implements android.view.View.OnCli
 			currentDateText.setText(prefs.getString("current_date", ""));
 			weatherInfoLayout.setVisibility(View.VISIBLE);
 			cityNameText.setVisibility(View.VISIBLE);
+			
+			Intent intent = new Intent (this, AutoUpdateReceiver.class);
+			startService(intent);
+			
 		}
 	
 }
